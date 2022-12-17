@@ -1,0 +1,6 @@
+#views:
+#  mustache:
+#    cache: true
+database:
+  url: jdbc:sqlite:db.sqlite3
+  driverClass: org.sqlite.JDBC
