@@ -1,0 +1,14 @@
+<html lang="en">
+<head>
+    <title>{{title}}</title>
+    <script src="/assets/htmx.min.js"></script>
+</head>
+<body>
+<main>
+    <button hx-get="/people" hx-swap="outerHTML">
+        Click Me
+    </button>
+</main>
+{{> footer}}
+</body>
+</html>

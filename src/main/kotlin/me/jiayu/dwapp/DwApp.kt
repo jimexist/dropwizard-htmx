@@ -1,13 +1,16 @@
 package me.jiayu.dwapp
 
 import io.dropwizard.Application
+import io.dropwizard.assets.AssetsBundle
 import io.dropwizard.configuration.EnvironmentVariableSubstitutor
 import io.dropwizard.configuration.SubstitutingSourceProvider
 import io.dropwizard.jdbi3.JdbiFactory
+import io.dropwizard.migrations.MigrationsBundle
 import io.dropwizard.setup.Bootstrap
 import io.dropwizard.setup.Environment
 import io.dropwizard.views.ViewBundle
 import me.jiayu.dwapp.dao.PersonDao
+import me.jiayu.dwapp.resource.IndexResource
 import me.jiayu.dwapp.resource.PersonResource
 import org.jdbi.v3.core.Jdbi
 import org.jdbi.v3.sqlite3.SQLitePlugin
@@ -23,6 +26,8 @@ class DwApp : Application<DwConfiguration>() {
         }
         val dao = dbi.onDemand(PersonDao::class.java)
         val personRes = PersonResource(dao)
+        val indexRes = IndexResource()
+        environment.jersey().register(indexRes)
         environment.jersey().register(personRes)
     }
 
@@ -30,6 +35,10 @@ class DwApp : Application<DwConfiguration>() {
         bootstrap.configurationSourceProvider =
             SubstitutingSourceProvider(bootstrap.configurationSourceProvider, EnvironmentVariableSubstitutor())
         bootstrap.addBundle(ViewBundle())
+        bootstrap.addBundle(object : MigrationsBundle<DwConfiguration>() {
+            override fun getDataSourceFactory(configuration: DwConfiguration) = configuration.dataSource
+        })
+        bootstrap.addBundle(AssetsBundle())
     }
 
     override fun getName() = "DwApp"

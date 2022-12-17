@@ -33,7 +33,9 @@ dependencies {
     implementation(platform("io.dropwizard:dropwizard-bom:2.1.4"))
 
     implementation("io.dropwizard:dropwizard-core")
+    implementation("io.dropwizard:dropwizard-assets")
     implementation("io.dropwizard:dropwizard-jdbi3")
+    implementation("io.dropwizard:dropwizard-migrations")
     implementation("io.dropwizard:dropwizard-views-mustache")
     implementation("io.dropwizard:dropwizard-configuration")
     implementation("org.jdbi:jdbi3-core")
