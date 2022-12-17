@@ -2,13 +2,25 @@
 <head>
     <title>{{title}}</title>
     <script src="/assets/htmx.min.js"></script>
+    <link rel="stylesheet" href="/assets/styles.css">
 </head>
 <body>
 <main>
-    <button hx-get="/people" hx-swap="outerHTML">
-        Click Me
+    <button data-hx-get="/people" data-hx-target="#name-list">
+        Load People
     </button>
+    <div id="name-list">
+    </div>
+    <form action="/people" method="post">
+        <input name="first_name" placeholder="First Name"/>
+        <input name="last_name" placeholder="Last Name"/>
+        <button type="submit">
+            Add People
+        </button>
+    </form>
 </main>
-{{> footer}}
+<footer>
+    Footer
+</footer>
 </body>
 </html>
