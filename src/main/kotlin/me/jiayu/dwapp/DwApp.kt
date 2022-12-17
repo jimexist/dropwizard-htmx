@@ -16,14 +16,14 @@ import org.jdbi.v3.core.Jdbi
 import org.jdbi.v3.sqlite3.SQLitePlugin
 import org.jdbi.v3.sqlobject.kotlin.KotlinSqlObjectPlugin
 
-
 class DwApp : Application<DwConfiguration>() {
     override fun run(configuration: DwConfiguration, environment: Environment) {
         val factory = JdbiFactory()
-        val dbi: Jdbi = factory.build(environment, configuration.dataSource, "db").apply {
-            installPlugin(SQLitePlugin())
-            installPlugin(KotlinSqlObjectPlugin())
-        }
+        val dbi: Jdbi =
+            factory.build(environment, configuration.dataSource, "db").apply {
+                installPlugin(SQLitePlugin())
+                installPlugin(KotlinSqlObjectPlugin())
+            }
         val dao = dbi.onDemand(PersonDao::class.java)
         val personRes = PersonResource(dao)
         val indexRes = IndexResource()
@@ -33,11 +33,17 @@ class DwApp : Application<DwConfiguration>() {
 
     override fun initialize(bootstrap: Bootstrap<DwConfiguration>) {
         bootstrap.configurationSourceProvider =
-            SubstitutingSourceProvider(bootstrap.configurationSourceProvider, EnvironmentVariableSubstitutor())
+            SubstitutingSourceProvider(
+                bootstrap.configurationSourceProvider,
+                EnvironmentVariableSubstitutor()
+            )
         bootstrap.addBundle(ViewBundle())
-        bootstrap.addBundle(object : MigrationsBundle<DwConfiguration>() {
-            override fun getDataSourceFactory(configuration: DwConfiguration) = configuration.dataSource
-        })
+        bootstrap.addBundle(
+            object : MigrationsBundle<DwConfiguration>() {
+                override fun getDataSourceFactory(configuration: DwConfiguration) =
+                    configuration.dataSource
+            }
+        )
         bootstrap.addBundle(AssetsBundle())
     }
 

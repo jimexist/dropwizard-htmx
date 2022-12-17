@@ -14,5 +14,4 @@ interface PersonDao {
 
     @SqlQuery("""select first_name, last_name from people limit 10""")
     fun findAll(): List<PersonInfo>
-
 }

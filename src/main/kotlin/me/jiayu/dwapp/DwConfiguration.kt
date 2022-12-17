@@ -8,9 +8,5 @@ import javax.validation.constraints.NotNull
 
 class DwConfiguration : Configuration() {
 
-    @NotNull
-    @Valid
-    @JsonProperty("database")
-    var dataSource: DataSourceFactory? = null
-
+    @NotNull @Valid @JsonProperty("database") var dataSource: DataSourceFactory? = null
 }
