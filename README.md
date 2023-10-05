@@ -1,3 +1,3 @@
 # dropwizard-htmx
 
-Demo app with dropwizard and HTMX
+Demo app with dropwizard and HTMX.
