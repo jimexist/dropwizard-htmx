@@ -34,8 +34,8 @@ application {
 dependencies {
     testImplementation(kotlin("test"))
 
-    implementation(platform("org.jdbi:jdbi3-bom:3.35.0"))
-    implementation(platform("io.dropwizard:dropwizard-bom:2.1.4"))
+    implementation(platform("org.jdbi:jdbi3-bom:3.41.3"))
+    implementation(platform("io.dropwizard:dropwizard-bom:4.0.2"))
 
     implementation("io.dropwizard:dropwizard-core")
     implementation("io.dropwizard:dropwizard-assets")

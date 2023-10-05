@@ -1,14 +1,14 @@
 package me.jiayu.dwapp
 
-import io.dropwizard.Application
 import io.dropwizard.assets.AssetsBundle
 import io.dropwizard.configuration.EnvironmentVariableSubstitutor
 import io.dropwizard.configuration.SubstitutingSourceProvider
+import io.dropwizard.core.Application
+import io.dropwizard.core.setup.Bootstrap
+import io.dropwizard.core.setup.Environment
 import io.dropwizard.jdbi3.JdbiFactory
 import io.dropwizard.migrations.MigrationsBundle
-import io.dropwizard.setup.Bootstrap
-import io.dropwizard.setup.Environment
-import io.dropwizard.views.ViewBundle
+import io.dropwizard.views.common.ViewBundle
 import me.jiayu.dwapp.dao.PersonDao
 import me.jiayu.dwapp.resource.IndexResource
 import me.jiayu.dwapp.resource.PersonResource
