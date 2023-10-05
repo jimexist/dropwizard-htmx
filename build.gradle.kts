@@ -1,9 +1,9 @@
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
-    kotlin("jvm") version "1.7.21"
+    kotlin("jvm") version "1.9.10"
     application
-    id("com.ncorti.ktfmt.gradle") version "0.11.0"
+    id("com.ncorti.ktfmt.gradle") version "0.13.0"
 }
 
 repositories {
@@ -13,14 +13,8 @@ repositories {
 group = "me.jiayu"
 version = "1.0-SNAPSHOT"
 
-tasks.withType<KotlinCompile> {
-    kotlinOptions.jvmTarget = "17"
-}
-
 kotlin {
-    jvmToolchain {
-        languageVersion.set(JavaLanguageVersion.of(17))
-    }
+    jvmToolchain(17)
 }
 
 ktfmt {
@@ -49,6 +43,6 @@ dependencies {
 
     implementation("org.jetbrains.kotlin:kotlin-reflect:1.7.21")
 
-    runtimeOnly("org.xerial:sqlite-jdbc:3.40.0.0")
+    runtimeOnly("org.xerial:sqlite-jdbc:3.43.0.0")
 }
 
