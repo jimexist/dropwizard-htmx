@@ -49,6 +49,6 @@ dependencies {
 
     implementation("org.jetbrains.kotlin:kotlin-reflect:1.7.21")
 
-    runtimeOnly("org.xerial:sqlite-jdbc:3.40.0.0")
+    runtimeOnly("org.xerial:sqlite-jdbc:3.43.0.0")
 }
 
