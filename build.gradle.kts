@@ -3,7 +3,7 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 plugins {
     kotlin("jvm") version "1.9.10"
     application
-    id("com.ncorti.ktfmt.gradle") version "0.13.0"
+    id("com.ncorti.ktfmt.gradle") version "0.14.0"
 }
 
 repositories {
