@@ -1,7 +1,7 @@
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
-    kotlin("jvm") version "1.9.10"
+    kotlin("jvm") version "1.9.20-RC"
     application
     id("com.ncorti.ktfmt.gradle") version "0.14.0"
 }
@@ -14,7 +14,7 @@ group = "me.jiayu"
 version = "1.0-SNAPSHOT"
 
 kotlin {
-    jvmToolchain(17)
+    jvmToolchain(21)
 }
 
 ktfmt {
