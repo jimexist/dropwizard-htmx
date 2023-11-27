@@ -41,7 +41,7 @@ dependencies {
     implementation("org.jdbi:jdbi3-sqlite")
     implementation("org.jdbi:jdbi3-kotlin-sqlobject")
 
-    implementation("org.jetbrains.kotlin:kotlin-reflect:1.9.20")
+    implementation("org.jetbrains.kotlin:kotlin-reflect:1.9.21")
 
     runtimeOnly("org.xerial:sqlite-jdbc:3.44.0.0")
 }
