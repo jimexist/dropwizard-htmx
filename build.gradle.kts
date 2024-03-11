@@ -29,7 +29,7 @@ dependencies {
     testImplementation(kotlin("test"))
 
     implementation(platform("org.jdbi:jdbi3-bom:3.45.0"))
-    implementation(platform("io.dropwizard:dropwizard-bom:4.0.4"))
+    implementation(platform("io.dropwizard:dropwizard-bom:4.0.7"))
 
     implementation("io.dropwizard:dropwizard-core")
     implementation("io.dropwizard:dropwizard-assets")
